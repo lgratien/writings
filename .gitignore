@@ -1,0 +1,5 @@
+# On ne versionne que les sources .tex pour l'instant
+*
+!*/
+!.gitignore
+!*.tex

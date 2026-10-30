@@ -1,0 +1,458 @@
+\documentclass[11.8pt]{amsart}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage{amssymb, mathrsfs}
+\usepackage{graphics}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[margin=2.7cm]{geometry}
+\usepackage{enumitem}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+
+\newcommand\N{\mathbb N}
+\newcommand\R{\mathbb R}
+\newcommand\Q{\mathbb Q}
+\newcommand\Qp{\mathbb Q_p}
+\newcommand\C{\mathbb C}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\cZ{\mathcal{Z}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\Gm{{\mathbb{G}_m}}
+\newcommand\Ga{{\mathbb{G}_a}}
+\newcommand\Aa{{\mathbb{A}_1}}
+\newcommand\g{{\mathfrak{g}}}
+
+
+\newcommand\HG{\mathcal H}
+\newcommand\git{G /\!\! / G}
+\newcommand\tr{\mathrm{tr}}
+\newcommand\Spec{\mathrm{Spec}}
+\newcommand\Hom{\mathrm{Hom}}
+\newcommand\rg{\mathrm{rg}}
+\newcommand\Coh{\mathrm{Coh}}
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Théorème}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{lem}[thm]{Lemme}
+\newtheorem{cor}[thm]{Corollaire}
+\newtheorem{fact}[thm]{Fait}
+\newtheorem*{claim}{Affirmation}
+\newtheorem*{question}{Question}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Définition}
+\newtheorem*{exemple}{Exemple}
+\newtheorem{exo}[thm]{Exercice}
+\newtheorem*{exemples}{Exemples}
+
+\theoremstyle{remark}
+\newtheorem*{rmq}{Remarque}
+\newtheorem*{rmqs}{Remarques}
+
+
+\begin{document}
+
+\subsection{Avril}$ $\\
+
+\textsl{17 avril} \quad Les représentations de plus haut poids de $GL_n$ se ramènent à des cas plus simples comme suit. Si $\mu$ est une partition (entière) de $n$, et $s_\mu(x_1,\ldots, x_n)$ le polynôme de Schur associé à $\mu$, alors $s_\mu$ est égal à $s_{(\mu_1-\mu_2,\mu_2-\mu_3, \ldots, 0)} \times (x_1\cdots x_n)^{\mu_n}$. Pour $GL_2$, cela permet d'utiliser le calcul de Varma pour conclure le cas général, $\mu_1-\mu_2$ impair. \\
+
+\textsl{18 avril} \quad Exposé sur la conjecture de $p$-courbure de Daniel Litt. En géométrie algébrique, les équations différentielles apparaissent de deux manières. Partant d'un morphisme de schéma propre et lisse $X\to S$ (pensons à une fibration sur $\mathbb A^1$), on a la cohomologie qui donne lieu aux connexions de Gauss-Manin $(\mathcal E, \nabla) = (R^i\pi_* \underline\C \otimes \mathcal O_S, \mathrm{id}\otimes d)$ (La conjecture de Grothendieck-Katz est à ce propos). Mais on peut aussi étudier l'espace de modules $\mathfrak M_{dR} : T \mapsto  \{$connexions plates sur $X_T/T\}$. Le point crucial est d'équipé cet espace d'une foliation algébrique tels qu'un feuillet fixé ne portent que des connexions dont la monodromie $\pi_{X_s, x} \to GL_n(\C)$ ne dépend pas du point de base.\\
+
+\textsl{19 avril} \quad La conjecture de Weil sur les nombres de Tamagawa admet deux preuves bien distinctes sur les corps de fonctions. L'une est due à Harder (1977) et suit de près l'analyse harmonique de Langlands et Lai. L'autre est due à Gaitsgory-Lurie. Je ne comprends pas comment ces deux mondes sont reliés. Cependant, un exposé de Lurie indique le crux : la dualité de Poincaré non-abélienne permet d'exprimer $\textrm{Maps}(X,BG) = BG(X)$ comme la colimite homotopique de $\textrm{Maps}(U,BG)$ où $U$ portent sur des petits voisinages ouverts de $X$. D'après les homotopistes du sous-sol, c'est écrire la factorisation des co-chaines suivante : $C^* (\mathrm{Bun}_G(X)) = \int_X C_*(BG_X)$. Prenant $X$ une courbe lisse et projective sur $\mathbb F_p$, on en déduit un principe local-global fort.\\
+
+\textsl{20 avril} \quad Le calcul de la fonction $z_\mu$ sur $\Gm$ fait apparaître une première difficulté combinatoire : le dénombrement des caractères non-ramifiés de $\Z_p^\times$ de puissance $n$-ième triviale. Celle-ci se propage dans l'expression sur $GL_2$.
+
+\textsl{21 avril} \quad Ngô et Luo sont aussi confus que moi à propos du rôle du cocentre dans l'approche de la conjecture stable. Cela semble être le bon objet car $z_\mu$ n'est pas supportée sur un nombre fini de composantes de Bernstein a priori. Ngô ne sait pas l'analogue de la conjecture de Kottwitz-Haines sur les corps de fonctions.\\
+
+\textsl{22 avril} \quad Démonstration de la formule de Salamon, qui énonce $nb_{2n} =  \sum_{j=1}^{2n} (-1)^j(3j^2-n)b_{2n-j}$ pour une variété hyperkählerienne de dimension complexe $2n$. Je m'appuis sur le calcul de Libgober-Wood des premiers termes du polynôme $T_{2n}(y)$ (à coefficients dans $\Q[c_1,\ldots, c_{2n}]$) en $y=1$. Celui-ci est définie par la relation 
+$$\sum_{p=0}^{2n} \chi^p(X)y^p = \int_XT_{2n}(y)(c_1(X), \ldots, c_{2n}(X)), \qquad \chi^p(X) := \chi(X,\Omega_X^p) = \sum_{q\ge 0}(-1)^qh^{p,q}(X)$$
+Le résultat est $$T_{2n}(y-1) = 2nc_{2n} - nc_{2n}y +\frac1{12}(n(6n-5)c_{2n}+c_1c_{2n-1})y^2 + \mathcal O(y^3).$$
+
+\textsl{23 avril} \quad Clarification de la définition des intégrales pondérées. Chaudouard et Laumon utilisent la définition suivante : $$J^\xi_M(X, f) = \int_{G_X(\mathbb A)\backslash G(\mathbb A)} f(g^{-1}Xg)w^\xi_M(g) \mathrm d_Xg,$$ $X\in \mathfrak m(F)$ un élément semi-simple régulier de sorte que son centralisateur dans $G(F)$ soit un tore maximal. Elle diffère de la définition d'Arthur. Plus précisément, à $\xi$ est associé l'enveloppe convexe $\mathcal C$ des points $-H_P(g)$, pour $P$ parabolique de Lévi $M$. La fonction de poids $w^\xi_M$ est le cardinal de l'ensemble $\{\mu \in X_*(M), \ \xi+\mu \in \mathcal C \}$. 
+
+La fonction de poids d'Arthur est le volume du convexe $\mathcal C$. Le résultat est que les intégrales orbitales définies selon l'une ou l'autre coïncident à un facteur de volume près ! La preuve n'est pas immédiate. Elle nécessite en particulier le lemme combinatoire de Langlands que je suis loin de comprendre parfaitement.\\ 
+
+\textsl{24 avril} \quad J'apprends dans Griffiths-Harris les bases sur les variétés abéliennes. Ce sont des objets très simples : des variétés algébriques complexes munie d'une structure de groupe abélien. Elles sont en particulière projectives. Etant donné un tore complexe (i.e. un quotient $V/\Lambda$ avec $\Lambda$ un réseau dans un espace vectoriel complexe $V$), on peut se demander quand est-ce que l'on obtient une variété abélienne. On voit par le théorème de Kodaira qu'il est équivalent d'être projectif, ou encore d'admettre un fibré en droite ample. C'est encore admettre une polarisation sur $V$, par un résultat de Riemann. L'histoire est complète pour les tores et il est opportun d'étudier les classes d'isomorphies de tels variétés abéliennes. 
+
+À partir d'une variété kählerienne complexe compacte $M$, nous disposons de la décomposition de Hodge et de la variété de Picard associée à $M$. C'est un tore qui est aussi une variété abéliennes, notons le $\hat M$. $\hat M$ est le schéma en groupe des (classes de) fibrés en droite de degré nul sur $M$. J'apprends enfin la bonne définition du fibré de Poincaré associé à $M$ $$\mathcal P \rightarrow M\times \hat M$$
+qui est défini (uniquement) par propriété d'être trivial sur $\{e\}\times \hat M$ et dont la fibre au dessus de $M\times \{\xi\}$  correspond au fibré $\xi$. L'existence de $\mathcal P$ repose sur la formule de Künneth et l'observation : si $\hat M$ est la donnée de $(V,\Lambda)$, $\hat\hat M$ est la donnée de $(\bar V^*, \Lambda^*)$.
+
+Enfin, on peut définir les jacobiennes partielles suivant le tore définit par les gradués de la décomposition de Hodge. Le premier est le groupe de Picard neutre, le dernier est la variété d'Albanese de $M$. Ces deux constructions sont duales l'une de l'autre.
+
+\textsl{25 avril} \quad je comprends enfin la remarque de Ginzburg à propos de la formule de MacDonald. Weyl démontre que le caractère de la représentation de plus haut poids $\mu$ s'exprime : $$\chi_\mu = \sum_{w\in W}w \cdot \prod_{\alpha>0}\frac{\pi^\mu}{1-\pi^{-\alpha^\vee}}.$$ Il suffit pour connaitre le caractère $\chi_\mu$ de connaître les transformées de Satake des indicatrices $1_{K\pi^\lambda K}$ pour $\lambda \le \mu$. Voici la formule de MacDonald : 
+$$\mathrm{Sat}(1_{K\pi^\lambda K}) = \frac{q^{-\langle \rho, \mu \rangle}}{W_\mu(q^{-1})}\sum_{w\in W} w \cdot \prod_{\alpha>0}\frac{1-q^{-1}\pi^{-\alpha^\vee}}{1-\pi^{-\alpha^\vee}} \cdot \pi^{w\cdot \mu},$$
+
+où $W_\mu$ est la somme des $q^{-l(w)}$ pour $w$ stabilisant $\mu$. Le point est que le terme de gauche est indépendant du paramètre $q$.\\
+
+\textsl{26 avril} \quad Un exposé de James Arthur présente une formulation qui m'est nouvelle des intégrales orbitales (et voir lundi 27 avril pour une autre approche). Il existe une formulation locale et une formulation globale ; je traite la première. La référence est l'article de Z. Yun \textit{Orbital integrals and Dedekind zeta functions} (2013). Soit $\gamma$ un élément semi-simple régulier de $\g(F)$ et $f(X)$ son polynôme caractéristique. Notons que $O_\gamma \ne 0$ si et seulement si $f(X)\in \mathcal O_F[X]$. Soit $R =  \mathcal O_F[X]/(f(X))$ et $E$ son anneau de fraction. On définit la fonction zeta de Dedekind locale de la paire $(R,E)$ comme $$\Lambda_R(s) = \sum_{j\ge 0} |\mathrm{Quot}^j_R|\cdot q^{-js} \qquad \text{et} \qquad V_R(s) = q^{\delta s}\prod_{i\in B}(1-q^{-n_is})$$
+$$\zeta_R(s) = V_R(s)\cdot \Lambda_R(s),$$
+avec $\mathrm{Quot}^j_R$ l'ensemble des idéaux fractionnaires de $R^\vee$ tels que $[R^\vee : M]=j$ ; $B$ l'ensemble des facteurs irréductibles de $f(X)$ et $n_i$ le degré de l'extension des corps résiduels associés à $f$, $f_i$.
+
+Le résultat est alors que $\zeta_R(s)$ vérifie une équation fonctionnelle, et exprime l'intégrale orbitale de $\gamma$ tordue par $|\det(g)^s|$. En $0$, on retrouve l'intégrale voulue !\\
+
+\textsl{27 avril} \quad Autre interprétation des intégrales orbitales pour les éléments modérément ramifiés de $GL_n$. Grâce à l'étude combinatoire des germes de Shalika, on montre que l'intégrale orbitale en $\gamma$ en une fonction bi-Iwahori invariante ne dépend que de la série de Puiseux de $\gamma$. J'aimerai pouvoir faire quelque chose de ces valeurs d'intégrales orbitales, d'autant que certaines formules ressemble lourdement à celles des caractères locaux stables. \\
+
+\textsl{28 avril} \quad Outre avoir vu V. Drinfeld, je comprends que le programme de Langlands géométrique est une paraphrase de l'écriture.\\
+
+\textsl{30 avril}  \quad Une longue discussion avec M. Emerton, que j'ai reporté ailleurs, me fait voir la richesse des approches possibles à l'étude des variétés de Shimura. Bien que ne parlant pas le même language, je comprends que l'étude des systèmes locaux est première ; que cela a permis les premiers progrès dans la théorie (c.f. isomorphisme d'Eichler-Shimura). Ayant à disposition Langlands catégorique, Zhu et Emerton formulent une conjecture dans le cas des corps de nombres entre le champ de paramètres de Langlands et la cohomologie de Shimura.\\
+
+\textsl{31 avril} \quad Les fonctions $L$ contiennent toute l'information souhaitée sur les représentations $r\circ \sigma(\pi)$. Pour y avoir accès, il suffit de noter que $L=1$ pour $\pi$ supercuspidale (Godement-Jacquet) ou ramifiée (Tate). Les formules de produits concluent. \\ 
+
+\textsl{vide}\\
+
+\subsection{Avril}$ $\\
+
+\textsl{9 mai} \quad Le théorème de Riemann-Roch-Hizrebruch est un outil puissant. Soit $X$ une variété (analytique ou algébrique) de dimension $n$ et $L$ un fibré en droites sur $X$. Le théorème exprime géométriquement la caractéristique d'Euler de $X$ relative à $\mathcal L$ : $$\chi(X, \mathcal(L)) = \int_X \, \mathrm{ch}(\mathcal L)\cdot \mathrm{Td}(TX).$$
+
+On retrouve bien sûr les cas des courbes et des surfaces. On peut remplace $\mathcal L$ par un fibré vectoriel général. Je ne sais pas comment démontrer ce théorème.
+
+
+\text{10 mai} \quad Un des résultats principaux des travaux de Tits est la classification des \textit{groupes schématiques} sur un corps local non-archimédien. Soit $O$ un anneau hensélien de valuation discrète et de corps résiduel parfait ; $k$ son corps de fractions. Soit $G$ quasi-déployé réductif sur $k$. On choisi un $k$-tore déployé maximal de $G$ et $\phi = \phi(G,S)$ le système de racine correspondant ; on le suppose réduit. Un point de l'immeuble de Bruhat-Tits détermine une filtration $\{U_a(k)_{x,r}\}_{r\ge 0}$ pour tout sous-groupe de racine $U_a$ de $G$.
+
+On fixe $f : \phi \cup \{0\} \to \R$ une fonction concave avec $f(0) = 0$, et soit $G(k)_{x,f}$ le sous-groupe généré par $U_a(k)_{x,f(a)}$ pour tout $a \in  \phi \cup \{0\}$. Alors $G(k)_{x,f}$ est un sous-groupe borné du groupe totalement non-connexe $G(k)$.
+\begin{thm} Il existe un schéma en groupes affines connexe $\underline{G}_{x,f}$ sur $O$, de fibre générique $G$, tel que \begin{enumerate}
+\item $\underline{G}_{x,f}(O) = G(k)_{x,f}$ ;
+\item Pour tout $a \in \phi \cup \{0\}$, la clôture schématique de $U_a$ dans $\underline G_{x,f}$ est lisse;
+\item Pour tout système de racines positives $\phi_+$ dans $\phi$, le morphisme de multiplication $$\prod_{a\in \phi^+} \underline{U}_a\times \underline U_0 \times \prod_{a\in \phi^-} \underline{U}_a \to \underline{G}_{x,f}.$$
+\end{enumerate}
+\end{thm}
+
+\textsl{11-18 mai} \quad Ma compréhension de la géométrie des courbes et surfaces algébriques a progressé. Notons que l'on commence souvent par l'étude des variétés projectives sur une base noethérienne. Cela à les avantages suivants : \begin{itemize}
+\item La cohomologie des variétés projectives est agréable à utilisée.
+\item Les outils tels que Riemann-Roch-Hizrebruch s'appliquent.
+\item On caractérise les variétés analytiques projectives grâce au \textit{théorème de Chow} : soit une variété analytique lisse. Si elle est projective, alors elle est en fait algébrique !   
+\item On caractérise les variétés algébriques projectives parmi les variétés kählériennes compactes grâce au \textit{théorème de plongement de Kodaira} : soit une variété compacte et kählérienne. Alors elle est projective (donc algébrique) ssi elle admet une classe de Kähler \textit{rationnelle}. 
+\item Enfin, l'amplitude de fibrés en droite sur une variété projective (même propre) est bien comprise par le critère topologique, géométrique, ou cohomologique.
+\end{itemize} 
+
+On s'intéresse aussi aux variétés propres. Elles n'ont pas de raison d'être projective en générale. Le lemme de Chow énonce qu'à équivalence birationnelle, toute variété propre et lisse est projective. En fait, toute courbe algébrique sur un corps propre (ni lisse ni réduite a priori !) \textit{est} projective. Pour le montrer, on a plusieurs choix : on peut soit raisonner sur le genre, soit utiliser l'uniformisation de Riemann si l'on travaille sur $\C$. On procède en général comme suit.
+
+on se ramène d'abord au cas lisse en passant à sa normalisée, puis à son schéma réduit (puisqu'il équivalent d'être ample sur la réduite ou sur la courbe). Enfin, on applique le critère d'amplitude de Serre.
+
+Un contre-exemple est le suivant. La surface de Hopf, définie par la variété quotient $(\C^2-\{0\})/\C^*$. Plus généralement, on se donne une surface abélienne sur $\C$. Alors l'éclatement en un point de cette surface définie une application propre qui n'est pas projective (le diviseur exceptionnel se rétracte).
+
+\textsl{12 mai} \quad Pourquoi s'intéresser aux cycles proches ? Je vois deux raisons. D'abord, c'est par définition un moyen commode d'étudier le comportement en les fibres singulières à partir de la fibre générique. Ensuite, la formule des traces de Lefschetz se généralise au cas d'un schéma sur $\Q$ qui n'admet pas de bonne réduction en un premier $p$. Soit $X$ un schéma propre et lisse sur $\Q$. On suppose que $X$ à un modèle propre et lisse $\mathcal X$ sur $\Z_{(p)}$. Alors $|X(\mathbb F_q)|$ ne fait pas sens en $q$ une puissance de $p$. Il faut plutôt considérer, pour $\ell\ne p$ : $\sum_{x\in X(\mathbb F_q)} \ \tr^{ss}(\mathrm{Frob}_q,\ (R\psi \bar \Q_\ell)_x)$.
+
+Scholze calcul cette quantité pour la courbe modulaire de niveau $m$, à l'aide d'une description explicite des diviseurs réguliers de la fibre singulière de cette courbe. On trouve que la contribution est égale à celle de l'action de Frobénius sur le dual tempéré de $GL_2(\Q_p)$. En conséquence, on en déduit (après application de la formule des traces, et stabilisation !) le développement automorphe de la fonction $\zeta$ (semi-simplifiée) de la courbe modulaire. C'est très impressionnant et très précis. La semaine prochaine, j'essaie de comprendre les difficultés du passage à $GL_n$.
+
+\textsl{22 mai} \quad \textbf{Notes étendues sur la théorie des groupes formels par Yoshida} 
+
+Le but de l'article est de présenter une preuve autonome et \textit{purement locale} de la théorie du corps de classes. L'avantage de la théorie de Lubin-Tate est de décrire explicitement les extensions totalement ramifiées d'un corps local $F$. Un autre avantage de cet article est de contourner l'utilisation du théorème de Kronecker-Weber local ; et d'étudier la ramification du groupe de Galois précisément. Cependant je n'ai pas regarder cette partie de l'article ; nous admettrons donc Kronecker-Weber.
+
+\textsl{Notations} Soit $F$ un corps local non-archimédien de caractéristique $p$ et $q$ le cardinal de son corps résiduel. Soit $F^{ab}$ l'extension maximal abélienne de $F$ ; le compositum des extensions finies abéliennes. Soit $E$ une extension finie de $F$. Le lemme de Hensel sera crucial dans notre étude ; nous considèrerons certaines extensions \textit{complètes} finie de $E$. Nous notons $\hat F$ l'extension sur $F$ complète non-ramifiée. $\pi$ sera toujours une uniformisante de $F$. Le choix d'une uniformisante revient au choix d'une valuation discrète sur $\mathcal O_F$, l'anneau des entiers de $F$.    
+\vspace{10pt}
+
+\begin{thm}[Lubin-Tate] \begin{enumerate}
+\item Il existe un unique morphisme de groupes $\mathrm{Art}_F : F^\times \to \mathrm{Gal}(F^{ab}/F)$ caractérisé par 1 : (la partie non-ramifiée de) l'uniformisante $\pi$ est envoyée sur le Frobénius de $K$ et 2 : pour toute extension finie \textit{abélienne} $F'/F$, un isomorphisme 
+$$F^\times/N_{F'/F}(F'^\times) \sim \mathrm{Gal}(F'/F).$$ 
+\item Si $F'/F$ est finie et séparable, un isomorphisme
+$$F^\times/N_{F'/F}(F'^\times) \sim \mathrm{Gal}(F'\cap F^{ab}/F).$$ 
+\item Soit $F_\pi$ l'extension totalement ramifiée 
+\end{enumerate}
+\end{thm}
+
+\begin{rmq} Ainsi, nous devrions noter $\mathrm{Art}_{F,\pi}$ en ce que l'application d'Artin dépend de l'uniformisante. La preuve de Yoshida fait apparaitre une autre dépendance (en $f$), mais celle-ci s'avère bénine.
+\end{rmq}
+\vspace{10pt}
+
+Avant de présenter les idées majeures de la preuve (\textit{qui ne sont pas reflétées dans le théorème final}), expliquons en quoi nous sommes en présence de la réciprocité de Langlands abélienne. Soit $\ell \ne p$ et $\iota$ un isomorphisme de corps (non topologique) entre $\bar \Q_\ell$ et $\C$. Nous avons d'une part $GL_1(F) = F^\times$ et d'autre part $G_F = \mathrm{Gal}(\bar F/F)$. Ces deux objets ont, d'après la philosophie de Langlands, le même comportement spectral. Plus précisément, nous devrions avoir une correspondance bijective entre 
+\begin{itemize}
+\item les caractères continus de groupes $W_F\times SL_2(\C) \to \C^\times$ et 
+\item les caractères continus de groupes $F^\times \to \C^\times$.
+\end{itemize} 
+
+L'ajout du groupe $SL_2(\C)$ est nécessaire pour une raison triviale : le groupe de Weil-Deligne est profini et la continuité impose que le morphisme se factorise à une extension finie de $F$. Cela imposerait une condition de finitude sur l'image du caractère. Or un caractère $F^\times \to \C^\times$ peut tout à fait être à valeurs arbitraires. On peut restreindre notre correspondance au sous-ensembles suivants, qui se généralisent correctement à $GL_n$ : 
+\begin{itemize}
+\item les caractères continus de groupes $W_F\times SL_2(\C) \to \C^\times$ triviaux sur $SL_2(\C)$ et 
+\item les caractères continus de groupes $F^\times \to \C^\times$ tempérés.
+\end{itemize} 
+
+La théorie du corps de classe énonce en fait que les sources, coïncident, \textit{à une obstruction majeure près}. $\mathrm{Art}_F$ n'est pas un isomorphisme. Nous devons compléter : $W^{ab}_F \cong \hat F^\times$. À ceci près, nous voyons que la correspondance découle de Lubin-Tate. 
+\vspace{10pt}
+
+\textsl{La profondeur cachée} L'idée majeure de la théorie de Lubin-Tate (LT) est la suivante. On s'intéresse aux \textit{lois de groupe formel} sur $\mathbb F_q$. Plus précisément, le contenu de la théorie est la classification des déformations de lois de groupe formel de $\mathbb F_q$. La notion de loi de groupe fait sens sur toute $\mathcal O_F$-algèbre $A$ (on note $\iota$ le plongement).
+
+\begin{defn} Une \textit{loi de groupe formel} de dimension $1$ sur $A$ est une série $F\in A[\![X,Y]\!]$ vérifiant 
+\begin{enumerate}
+\item $F(X,Y) = X + Y + \ldots$,
+\item la loi de $F$ est associative, et commutative. 
+\end{enumerate}
+
+Pour tout $\theta \in \mathcal O_F$, la donnée de $[\theta]_F = \iota(\theta) X+ \ldots \in A[X]$. 
+\end{defn}
+
+Il y a une notion claire d'\textit{entrelacement} entre lois de groupes. Si $A = \mathbb F_q$ et $\iota(\pi)=0$, on a deux classes de lois de groupes formels de dimension $1$. Soit $[\pi]_F=0$ auquel cas $F$ est isomorphe à la loi $F(X,Y) = X+ Y$ (notée $\mathbb G_a$) soit on dispose de $h>0$ tel que $[\pi]_F$ soit un polynôme en $X^{q^h}$. L'entier $h$ est appelé la \textit{hauteur} du groupe formel. L'exemple fondamental dans ce cas est la loi $F(X,Y) = X+ Y+XY$ (notée $\mathbb G_m$). 
+\vspace{10pt}
+
+Résumons comment procèdent Lubin et Tate. Posons $A=\mathcal OL$. D'abord, ils montrent l'existence d'une loi de groupe formel associée à toute $f\in A[X]$ vérifiant $f(X) \cong X^q \pmod \pi$ et $f(X) \cong \pi X \pmod{X^2}$. Ensuite, ils montrent qu'il existe une unique déformation de hauteur $1$ de $f$. Il suffit par conséquent de prendre $f(X) = \pi X + X^q$. Ensuite, ils construisent une tour d'extensions ramifiées de $L$ obtenues comme corps de décompositions pour chaque $f_m(X) = [\pi^m]_{\mathbb G_m}(X)$. C'est concrètement le polynôme $(1+X)^{q^m}-1$ pour $m>0$ ; et $L_m = L(\zeta-1, \ \zeta\in \mu_{q^m})$. La réunion de ces tours lorsque $L = F^\times$ est notée $\hat F^{LT}$. Il démontre que $F^{ab} \cong F^{ur}\hat F^{LT}$. La loi de réciprocité est alors définie par la relation : $\forall \theta \in \mathcal O_F^\times$, $$[\theta]_{\mathbb G_m}(\lambda_m) = \mathrm{Art}_F^{-1}(\theta)(\lambda_m).$$
+
+J'insiste enfin sur les difficultés qui apparaissent dans la démonstration. Il peut sembler étrange de définir pour tout $f$ une loi de groupe formel puisque l'on sait (a posteriori) qu'une seule suffit. Cependant, \textit{si l'on omet Kronecker-Weber}, il est nécessaire de les avoir toute pour identifier $F^{ab}$ et $\hat F^{LT}$. La dernière étape est aussi technique. Ultimement, la bijectivité de l'application d'Artin est obtenue \textit{à chaque strate} en comptant les cardinaux des extensions successives d'une part, et les cardinaux des ensembles $\mu_m$.
+
+\begin{rmq} La théorie en hauteur supérieure est plus subtile, bien que largement analogue. L'espace des déformations de loi de groupes formels sur $\bar{\mathbb F}_q$ de dimension $1$ est un disque formel ouvert de dimension $h-1$ sur $\mathrm{Spf} \ \mathcal O_{\hat F^{ur}}$. La \textit{tour de Lubin-Tate} est obtenue comme suit. La fibre générique (i.e. au dessus de $\hat{F}^{ur}$) est un espace rigide analytique noté $\mathcal M_0$. L'espace des points de $\pi^n$-torsions de $\mathcal M_0$ est un revêtement fini et étale. La réunion de ces revêtements forme la tour de LT. 
+
+Une action de $GL_h(F)$ sur cette tour est le point de départ de la démonstration de LLC pour $GL_h$, par Deligne et Carayol (1990) et Harris-Taylor (2001).
+
+\end{rmq}
+
+\textsl{23 mai} \quad Je comprends l'importance des modèles de Néron pour deux raisons bien distinctes que je détaille. \begin{enumerate}
+\item D'abord, l'étude des bases pour la classe d'Emerton m'a amené à l'étude de la réduction de courbe elliptique et variété abélienne modulo premier. On sait qu'un tel objet admet bonne réduction en toutes places sauf en un nombre fini. Pour capturer le comportement de mauvaise réduction, on introduit le \textit{conducteur} de la courbe elliptique. Je ne sais pas si des analogues existent en dimensions supérieures. Soit $\Delta$ le discriminant de la courbe elliptique. Le conducteur est un invariant global, produit en $p$ de $p^{v_p(\Delta)+1-N_p}$ où $N_p$ est le nombre de composantes connexes de la fibre singulière en $p$. Je ne comprends pas encore la motivation de cette définition et pourtant c'est crucial ! La courbe elliptique a bonne réduction si et seulement si $p$ divise $N$ (critère de Néron-Ogg-Shafarevitch).
+
+En cas de mauvaise réduction, la courbe elliptique à une (unique) singularité (sinon : on contredit la projectivité par la formule d'adjonction). Voici les trois comportements possibles : \textit{réduction déployée multiplicative} (i.e. singularité nodale, avec pente définie sur le corps fini) ; \textit{réduction non-déployée multiplicative} (i.e. singularité nodale, avec pente définie sur une extension quadratique du corps fini) ; \textit{réduction additive} (i.e. singularité cuspidale). On dit que la courbe est \textit{semi stable} en $p$ si la mauvaise réduction est multiplicative. Le théorème de semi-stabilité de Grothendieck énonce que toute courbe elliptique sur un corps est potentiellement semi stable. On le reformule comme suit : l'inertie agit de manière unipotente sur les modules de Tate en tout premier $\ell\ne p$. 
+
+C'est un résultat délicat dont je ne connais pas la démonstration : les modèles de Néron sont utilisés.
+
+\item la deuxième vient de l'exposé de V. Volodgsky, qui démontre que toute variété abélienne $A$ (disons de dimension $g$) définie sur un corps local $K$ (incluant donc $\R$ et $\C$) à volume égal à sa variété abélienne duale. On sait que les modèles de Néron existent pour de tels objets. On définit le volume de $A(K)$ comme la forme volume $\omega$ dans $\Omega^g_{A/K}$, unique à scalaire près. La question subtile est celle de la normalisation. Soit $\mathcal A$ le modèle de Néron de $A$, c'est un schéma lisse sur $\mathcal O_K$. $\Omega^g_{\mathcal A}$ est un $\mathcal O_K$-réseau dans $\Omega^g_{A/K}$. Soit $\mathrm{can_A}$ transportant $\Omega^g_{A/K}$ sur $\Omega^g_{A^\vee/K}$. L'égalité des volumes est équivalente aux deux conditions : 1. $|\mathrm{vol}(\mathcal{A}(\mathcal O_K))| = |\mathrm{vol}(\mathcal{A}^\vee(\mathcal O_K))|$ et 2. Le transfert $\mathrm{can}_A$ envoie le réseau $\Omega^g_{\mathcal A}$ sur $\Omega^g_{\mathcal A^\vee}$. Remarquons que si $A$ a bonne réduction en l'idéal maximal de $\mathcal O_K$, le modèle de Néron est isomorphe à $A$ et il suffit de compter les points. Dans le cas général, le point $1$ est connu depuis longtemps. C'est en fait la deuxième condition qui est subtile. Vadim me dit qu'on utilise toujours qu'indirectement le modèle de Néron sans avoir à rentrer dans sa construction. Je n'ai donc pas le contenu de $2$ ; simplement que la dualité de Tate, et l'égalité numérique des cardinaux des compostantes connexes des variétés de Picard de $A$ rentrent en jeu. 
+
+Il serait utile de formuler en termes de \textit{transformée de Fourier} et de \textit{formule de Poisson} ; autrement dit définir l'analyse $p$-adique sur les variétés abéliennes. Mais la tâche semble subtile en ce que l'intégration $p$-adique est en fait un masque de la géométrie du modèle de Néron. J'espère que ces deux motivations suffisent à expliquer mon intérêt naissant pour les variétés abéliennes.
+\end{enumerate}
+
+
+
+\begin{rmq} La formation de la fonction $L$ associée à une variété abélienne (maintenant définie sur un corps global) repose aussi crucialement sur le modèle de Néron. Il me semble que l'invariance par isogénie de la fonction $L$ est équivalente au premier point. Il reste le mystère du second !  
+
+\end{rmq}
+
+
+
+\textsl{24 mai} \quad Suite à l'exposé de J. Tsimerman \textit{Diophantine results on Shimura varieties}, voici les points importants que j'en retiens. Tsimerman part du résultat qui serait le  « Graal » de la géométrie algébrique diophantienne : 
+\begin{conj}[Lang] Soit $X$ une variété projective et lisse sur $\Q$. On suppose que $X(\C)^{an}$ est une variété \textit{hyperbolique} (cf. remarque). Alors $X(\Q)$ est finie. 
+\end{conj}
+
+\begin{rmq} Une variété complexe est dite hyperbolique au sens de Kobayashi si elle n'admet pas de fonction holomorphe vers $\C$. Il suffit que $\Omega_X^1$ soit ample sur $X$. 
+\end{rmq}
+
+Pourquoi cette conjecture est difficile (voir très difficile) ? Voyons les cas particuliers :
+
+\paragraph{Dimension $1$}. Une courbe hyperbolique à un genre supérieur ou égal à $2$. Mais alors c'est le théorème de Falting - conjecture de Mordell ! Rappelons que les outils nécessaires à la démonstration de Mordell sont très élégants et difficiles (hauteurs, étude en famille). Si $X$ est compacte (de genre quelconque !), Alors les $\Q$-points de $X$ sont donnés en niveau fini. On peut renforcer l'énoncé original :
+
+\begin{prop} Soit $C$ une courbe lisse et propre sur $\Z[1/N]$. On s'intéresse aux diviseurs de degré $n$ étales sur $\Z[1/N]$. L'ensemble des ces diviseurs est bien sûr infini, mais un thème qui reviendra est d'étudier ces diviseurs à\textit{automorphismes près} : $$\mathrm{Aut}\backslash \ \mathrm{Div}^n_{ét}(C)$$
+est fini.
+\end{prop}
+
+\paragraph{Dimension $>1$}. Le cas général ici est bien trop dur ! Tsimerman se limite à la discussion des espaces de modules abéliens $\mathcal A_g$, et des variétés de Shimura. On rappelle les résultats principaux dans cette direction. 
+
+\begin{thm}[Faltings] Soit $X\subset \mathcal A_g$ une sous-variété compacte (i.e. propre sur $\Q$), alors $|X(\Q)|$ est fini. Corollaire : $\mathcal A_g(\Z[1/N])$ est fini : il n'existe qu'un nombre fini de variétés abéliennes de dimension $g$ et de bonne réduction hors de $N$. 
+\end{thm}
+
+L'autre thème important est l'analogie entre courbes sur les corps et spectre d'anneaux arithmétiques. Ici, les $\Z[1/N]$-points de $X$ sont vus comme les applications $\Z[1/N]\to X$. L'analogie suggère donc de regarder les application de $C$ vers $X$ sur un corps $k$. 
+\vspace{5pt}
+
+\textit{Le cas $k=\C$ algébriquement clos.}
+
+\begin{thm}[Deligne] Soit $C$ une courbe lisse et projective sur $\C$. Alors $$\Hom(C,\mathcal A_g)$$ est fini \textit{à déformations plates près}.\end{thm}
+
+\textit{Le cas $k=\mathbb F_q$.} Ici, il y a les isogénies de degré puissance de $p$. Un résultat obtenu par Tsimerman est que le quotient de $\Hom_{k-\text{var}}(C, \mathcal A_g)$ est fini à $p$-isogénies près. Sur $k=\bar{\mathbb F}_q$, le quotient est seulement de type fini. 
+\vspace{10pt}
+
+\paragraph{Dimension $>1$ : variétés de Shimura} Ce sont des candidats parfaits pour s'attaquer à la conjecture de Lang : ils sont hyperboliques, et symétriques. Soit $S = (G,h)$ une donnée de Shimura et $E$ son corps réflexe. On rappelle les grandes lignes du développement des \textit{modèles} de variétés de Shimura. Le premier résultat est le suivant.
+
+\begin{thm}[Borovoi, Milne, Langlands, Deligne, Shimura, Kazhdan] $S$ est muni d'une structure de variété sur une extension (corps réflexe) finie de $\Q$. De plus, 
+$$S(\mathbb A) = G(\mathbb Q)\backslash(H\times G(\mathbb A_f))/G(\hat \Z).$$
+\end{thm}
+
+
+Après des mois de flou autour de cette notion, je peux désormais clairement les discuter. Il existe une hiérarchie d'au moins trois niveaux de modèles: \begin{enumerate}\item un \textit{modèle} pour $S$ est un système de variétés quasi-projectives sur $E$, indexé par la famille filtrante des ouverts compacts de $G$. Cela donne lieu à la limite projective $\mathbf S$, un $E$-schéma avec action de $G(\mathbb A_f)$ et un isomorphisme $G(\mathbb A_f)$-équivariant $\mathbf S\otimes_E \C \simeq S(G,h)(\C)$. \item un \textit{modèle canonique} pour $S$ est un modèle $\mathbf S$ vérifiant de plus la condition suivante. Soit $\textbf{(Can)}$ : pour tout tore algébrique de $G$, noté $u:H\hookrightarrow G$ et tout $h:\mathbb S \to H_\mathbb R$ tels que $u\circ h'$ et $h$ sont $G(\mathbb R)$-conjugués. On demande que
+
+$$u : S(H,h')(\C) \to S(G,h)(\C)$$
+soit défini sur le corps composé $E(G,h)\cdot E(H,h')$.
+\item Soit $v$ une place en laquelle $G$ est non-ramifié et $K_v\subset G(E_v)$ un sous-groupe compact maximal hyperspécial\footnote{$G$ est dit non ramifié en $v$ si $G$ s'étend en un schéma en groupe $\mathcal G$ sur $\mathcal O_{E_v}$. Un sous-groupe hyperspécial $K_v$ est de la forme $\mathcal G(\mathcal O_{E_v})$ avec $\mathcal G$ comme précédemment.}. Soit $v$ une place de $E$, le corps réflexe de $S$. Un \textit{modèle canonique entier} de $S$ en $v$ est un système $\mathbf S_v = (\mathcal S_{K_vK^v})$ de $\mathcal O_{E_v}$-schémas lisses et de morphismes de transitions étales finis, pour $K^v\subset G(\mathbb A_f^v)$ variant parmi les sous-groupes ouverts compacts. De plus, pour $\mathcal S_v$ la limite projective de tels schémas, on demande \begin{itemize}
+\item $\mathcal S_v \otimes_{\mathcal O_{E_v}} E_v \simeq S \otimes E_v$.
+\item Dans le cas où la fibre singulière est non vide, $\mathcal S_v$ est lisse sur $\mathcal O_{E_v}$.
+\item (Propriété d'extension) Pour toute $W$ variété lisse sur $\mathcal O_{E_v}$, et $W'\subset W_{\mathbb F_v}$ un diviseur de la fibre singulière de $W$, $$\Hom(W-W',\mathcal S_v) \simeq \Hom(W, \mathcal S_v).$$ 
+\end{itemize}
+
+On devrait ajouter que les correspondances de Hecke induisent des morphismes finis et étales en tout niveau.
+
+\begin{rmq} \begin{itemize}
+\item Nous verrons avec le théorème qui suit que toute variété de Shimura admet un modèle canonique, rendant quelque peu inutile la notion de modèle nu. 
+\item $\textbf{(Can)}$ se reformule ainsi : $u$ induit un morphisme de données de Shimura défini sur le corps réflexe.  
+\item Questions d'unicités : de la structure de variété sur $S$ : non ; du modèle canonique : oui à isomorphisme près ; du modèle canonique entier : oui à unique isomorphisme près.
+\end{itemize}\end{rmq}
+
+\begin{thm}[Deligne, Langands, Kisin, Moonen (1998)] Toute variété de Shimura admet un modèle canonique.\end{thm}
+
+ Si la variété de Shimura vient d'un problème de modules, il est en général possible de construire un modèle entier. Déjà pour le cas des variétés de Shimura de type abélien, Kisin généralise l'approche de Kottwitz dans le cas des variétés de Shimura simples et utilise le critère de Néron-Ogg-Shafarevitch pour déduire l'existence du modèle entier en niveau hyperspécial. Mais les variétés de Shimura exceptionnelles ne répondent pas à ce critère. Cependant, toute variété de Shimura donne lieu à un espace de \textit{motifs}. (!)
+
+Je termine énonçant le résultat de B. Bakker et J. Tsimerman de l'exposé d'hier :  
+\begin{thm}[Bakker-Shankar-Tsimerman, Esnault-Groechenig] Soit $S$ une donnée de Shimura quelconque, définie sur son corps réflexe $E$. Il existe un ensemble fini de places $T$ de $E$ tel que $S$ admet un modèle canonique entier hors de $T$.
+\end{thm}
+
+\end{enumerate}
+
+\newpage
+
+\section{2026}
+
+\subsection{Septembre}
+\vspace{10pt}
+
+\textsl{mardi 30 septembre} \quad Deux jours que l'école a commencé, et les choses vont très vite. Je peux enfin me confronter et confronter les autres, en particulier Altan et Rajarshi. Voyons si cela dure et avec quelle profondeur. Je ne peux revenir sur l'été ni sur la semaine passée. Mais comme j'ai pratiqué et appris en topologie algébrique, voici quelques éléments pour mémoire : 
+\begin{itemize}
+\item Homotopie : CW complexes : exemples et contre-exemples ; van Kampen ; suspension ; join ; wedge ; mapping cone ; fibres et cofibres ; commutativité de $\pi_n$ ; homotopie stable et quelques valeurs de $\pi^{s}_k(\mathbb S)$ ; Freundenthal : soit $X$ un CW complexe $(n-1)$-connexe, alors l'application $\pi_i(X) \to \pi_{i+1}(\Sigma X)$ is an isomorphism if $i<2n-1$ and a surjection if $i=2n-1$.
+\item Homologie : exemples et contre-exemples ; excision ; Mayer-Vietoris ; morphisme d'Hurewicz (et hypothèse de $(n-1)$-connexité pour $n\ge 2$) [preuve : on se ramène d'abord à un CW-complexe, puis à un squelette concentré en $n$ ; enfin $X = \text{cofib}{\bigvee\mathbb S^n \to \bigvee\mathbb S^m}$] ; théorème des coefficients universels ; formule de Künneth.
+\item Cohomologie : formule de Künneth ; théorème de représentabilité de Brown.
+\item Approximation par CW : toute application continue de CW complexe est homotopiquement équivalente à une application simpliciale ; tout CW complexe est homotope à un complexe simplicial ; en général, tout $X$ admet une équivalence d'homotopie faible $f : Z \to X$ avec $Z$ un CW complexe. Théorème de Whitehead : pour les CW complexes, l'équivalence d'homotopie faible est une équivalence d'homotopie. Si les deux sont de plus simplement connexes, alors il suffit que leur homologies coïncident. 
+\item Bonus : théorème de Hilton sur la décomposition de $\Sigma \Omega(X\wedge Y)$ et application au calcul de $\pi_n(\mathbb S^2\wedge \mathbb S^2)$.
+\end{itemize}
+
+Terminons sur trois éléments concrets appris aujourd'hui. D'abord le calcul par présentation (que je savais faire à Oxford...) d'un groupe de noeud. J'apprends sans savoir pourquoi pour les $\pi_n, n\ge 3$ que $\mathbb S^3-K$ est un espace $K(G,1)$ ; sa présentation est toujours de la forme $wx_iw^{-1} = x_i$ pour $w$ un mot en les générateurs $x_i$. Deuxièmement il est toujours utile de penser à la caractéristique d'Euler lors d'un problème en basse dimension. Enfin une clarification sur l'orientatibilité : c'est un problème qui se pose pour les espaces réels. En effet, tout variété complexe est orientable par la multiplication de $i$. On discrimine les variétés non-orientables en regardant un $2$-revêtement classifiant les orientations locales. En particulier, si $X$ est simplement connexe, $X$ est orientable ! Enfin, si $M$ est une variété fermée orientable de dimension réelle $n$, alors $H_n(M)= 0$.
+
+Note : Il y a eu deux exposés en Langlands géométrique. Je n'ai compris ni le premier (A.-C. Lebras) qui construit un champ de de Rham dans le contexte des espaces analytiques de Clausen-Scholze ni le second (D. Arinkin) qui tentait d'expliquer la limite classique pour l'équivalence de Satake naïve. Notons ici que cette équivalence \textit{est} une instance de l'équivalence $\mathbb L_G$ pour la courbe $\mathbb P^1$! 
+\vspace{10pt}
+
+\textsl{jeudi 2 octobre} \quad Avoir vécu dans une réalité aussi floue pendant quatre, cinq ans est ahurissant. Passons aux faits. D'abord l'examen d'algèbre me rappelle la dualité de Schur-Weyl que je n'ai jamais ni utilisée ni regardée de près. Pourtant c'est le cas le plus simple de dualité généralisée ensuite par Deligne et Lusztig. D'ici une semaine, j'ai lu et compris sur le sujet. Le point essentiel semble être le double centralisateur. 
+
+L'exposé de géométrie algébrique dérivée me fait réaliser mon retard énorme sur le sujet. Mais j'apprends vite et j'espère devenir un dg-humain bientôt. Les idées apprissent aujourd'hui sur le sujet : l'extension de Kan est très générale ; rien de mystérieux à ce sujet. Deuxièmement l'homotopie dans une $\infty$-catégorie est simplement le comportement du $\pi_0$ des morphismes de $\Sigma^n *$ vers un objet $X$ de la catégorie. Prendre le $\pi_0$ d'un $\infty$-groupoïde $X$, c'est considérer les classes d'isomorphismes d'éléments de $X$ quotientées par les $1$-isomorphismes entre eux. [Les points avec automorphismes deviennent ponctuel]. Un résultat que j'aimerai comprendre est le fait suivant : 
+
+\begin{prop}[DAG, Prop. 3.3.3] Soit $Y$ un objet de $\mathrm{NearStk}_{laft}$, vu comme un objet de $\mathrm{PreStk}$ via
+$$\mathrm{NearStklaft} \subset \mathrm{PreStk}_{laft} \subset \mathrm{PreStk}.$$
+
+On suppose que pour tout $n$, la restriction $^{\le n}Y$ de $Y$ à $^{\le n}\mathrm{Sch^{aff}}$ est is $k_n$-tronquée pour un certain $k_n\in \mathbb N$. Alors $Y\in \mathrm{Stk}$.
+
+\end{prop}
+
+Enfin, l'exposé de A.-C. Lebras sur la géométrisation de Langlands $p$-adique. J'ai besoin d'exemples pour comprendre ce qu'est une représentation lisse, localement analytique, ou continue. De même pour $\mathbb Q_p^{la}$ et $\mathbb Q_p^{sm}$ que je ne connais pas. Une fois ceci fait, peut-être passer aux espaces de Berkovich, de Banach-Colmez, et cohomologie de Hyodo-Kato. Il y a des calculs très concrets à faire. Je les entoure en rouge dans mes notes. Mais je n'ai pas de questions à poser car je ne comprends déjà pas FS.   
+\vspace{10pt}
+
+\textsl{mardi 7 octobre} \quad Rencontre avec Ngô (je dois penser à enregistrer la conversation!) : pour la suite, regarder la dualité de Langlands hors du lieu elliptique. Ngô note les problèmes suivants concernant la construction du champ $\mathbf M^1_G$ vu comme adhérence de l'action du Picard $\mathbf P^1_G$ agissant sur la section de Kostant. Ce champ n'est sûrement pas de Deligne-Mumford et non-séparabilité. Il faut faire attention avec l'adhérence dans les champs d'Artin. 
+
+Ensuite, j'ai commencé la lecture de \textsl{Adelic Descent Theory} de M. Groechenig. Je suis très lent donc je n'ai pas dépassé le stade définitionnel. Pourtant deux constructions connues se rejoignent. La première est celle d'espace classifiant d'un groupe (algébrique ou non) via la construction d'un complexe simplicial sur les $G^n$. La seconde est la présentation de $[X/G]$ comme diagramme cosimplicial $X\times G^\cdot$. Le premier est un cas particulier du second avec $X$ l'objet terminal de la catégorie considérée. Seulement je ne comprends pas totalement cette dernière construction. Je mentionne tout de même l'idée de Groechenig : utiliser les adèles de Beilinson (un anneau cosimplicial) qui généralise la correspondance de Weil dans le cas des courbes irréductibles complètes et lisses. 
+\vspace{10pt}
+
+\textsl{jeudi 9 octobre} \quad Premier rendez-vous avec Sanath Devalapurkar, extrêmement bénéfique. Il clarifie l'argument de preuve de Satake suivant Ginzburg, et pointe plusieurs imprécisions. J'apprends par ailleurs que sa thèse consiste en une version de Satake dérivée avec des coefficients pouvant être différentes théories cohomologiques. Essentiellement, le point délicat est le calcul de la coho. de $\mathrm{Gr}_G$ et du point, $G$-invariantes. Ensuite, les propriétés de la sections de Kostant devraient suffire à éviter de considérer le torseur provenant du formalisme tannakien. Quelques jolies reformulations :   
+
+\[\begin{tikzcd}
+	{\mathfrak{\check{g}}/\check G} && {\mathrm{Rep}_k(\check{G})} && {\mathrm{Perv}_{G(\mathcal O)}(\mathrm{Gr}_G, k)} \\
+	{B\check G} &&&& {(\mathrm{Sym}(\mathfrak{\check{g}}), \check G)-\mathbf {mod}}
+	\arrow[from=1-1, to=2-1]
+	\arrow["{\mathrm{Sat}}", from=1-3, to=1-5]
+	\arrow[dashed, from=1-3, to=2-5]
+	\arrow["{\Phi = H^*_{G(\mathcal O)}(\mathrm{Gr}_G, –)}", from=1-5, to=2-5]
+\end{tikzcd}\]
+et
+\[\begin{tikzcd}
+	{\mathfrak{\check{g}}/\check G} &&&& {\mathrm{Proj}( \mathbb C[\mathfrak c])-\mathbf {mod}} \\
+	{\mathfrak{\check{g}}/\!/ \check G} &&&& {(\mathrm{Sym}(\mathfrak{\check{g}}), \check G)-\mathbf {mod}}
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-5, to=2-5]
+\end{tikzcd}\]
+\vspace{10pt}
+
+\textsl{vendredi 17 octobre} \quad Je ne ferais pas mention des rencontres de la veille avec Sanath et Ngô qui ont été parmi les plus productives depuis longtemps. Je souhaite plutôt présenter ce qui a été exposé aujourd'hui aux séminaires de géométrie algébrique et de théorie des représentations. \begin{itemize}
+\item \textbf{Géométrie algébrique} — Présentation d'un cadre uniforme (des matroïdes, même s'il n'en a pas été question) pour un ensemble d'inégalités sur les polynômes provenants de determinants de matrices, de nombres d'intersections sur les variétés de Kähler et polynômes de Minkovski provenant de convexes. Puisque les deux extrêmes sont incluses dans la classe du milieu, il est intéressant de savoir si une réciproque est envisageable. Il est bien sûr difficile de déterminer un polynôme n'étant pas de Kähler, et je ne sais pas en trouver un. Toujours est-il que l'on sait « globaliser » des inégalités ponctuelles de matrices hermitiennes en des inégalités kähleriennes comme le théorème de l'indice de Hodge. Je l'énonce ci-dessous pour la postérité, ainsi qu'un lemme de Yau utile : 
+
+\begin{thm}[de l'indice de Hodge] Soit $X$ une variété kählerienne compacte de dimension $n$ et $A$, $B$ des diviseurs nef dans $X$. On a $\left(\int_X AB\right)^2 \ge \int_X A^2\cdot \int_X B^2$.
+\end{thm}
+
+\begin{lem}[Yau] On choisit une classe de forme de Kähler dans $X$, notée $[\eta]\in H^{1,1}(X,\C)$ et une forme volume $\omega$ sur $X$ provenant de la classe de $\eta$. Alors il existe une forme $\eta'$ telle que $\eta'^n = \omega$.
+\end{lem}
+
+\item \textbf{Théorie des représentations} — T. - S. Chen avec un titre aguicheur : \textit{Bernstein centers of $p$-adic groups and perverse sheaves}. Dans ce dernier, Chen présente un résultat qui est la suite de l'article de BKV sur une construction catégorique du centre de Bernstein. Il y deux résultats principaux. Le premier est une description harmonique explicite de l'algèbre de Bernstein des éléments induisants l'identité sur $R(G(F))_{\le r}$. Plus précisément, on peut construire un inverse \textit{explicit} de l'application 
+
+$$\phi_r : Z(G(F))_{\le r}\longrightarrow A(G(F))_{\le r} : z \longmapsto z(\delta_{P_{r+}}),$$
+
+où $P_{r+}$ est un parahorique de la filtration de Moy-Prasad et $A(G(F))_{\le r}$ l'algèbre des fonctions lisses à support compact sur $G(F)$ invariante par conjugaison par $P=P_0$ et invariantes à droite par $P_{r+}$. Cet inverse est la valeur 
+$$\mathrm{Av}^{Y}(f) = \sum_P (-1)^{r(G) - r(P)} \sum_{y\in Y_P}\mathrm{Ad}(y)(f_P)$$
+qui se stabilise quand $Y$ parcours les unions finies de $I$-orbites de $G(F)$ stables par action du groupe de Weyl étendu. 
+
+Notons que ce premier résultat généralise le cas de l'unité (i.e. du projecteur) traité par Berzukavnikov et Kazhdan plus tôt. Le second résultat porte sur la construction d'éléments explicites dans ce centre de profondeur $r$. Plus précisément, Chen définit l'analogue géométrique du centre de Bernstein pour le groupe des arcs $LG$ sur $\bar{\mathbb F_p}$ par $$\mathrm{End}_{D(LG)\otimes D(LG)}{D(LG)}$$ le centre de l'$\infty$-catégorie des complexes bornés de faisceaux sur $LG$. L'application de la trace devrait redonner le centre usuel ; je ne sais pas pourquoi. Alors, une conjecture décrivant une propriété d'équivariance de Weyl des foncteurs de « transfert » d'un parahorique dans un autre permet de construire des éléments du centre catégorique donc du centre $\le r$. Ceux-ci proviennent des faisceaux pervers sur $I_r/I_{r+}$ $W$-équivariant dits très centraux.
+
+J'ai beaucoup apprécié cet exposé (1 heure 30!) mais il manquait de clarté. Les exemples étaient trop classiques et hésitant sur les bases. 
+
+\item \textbf{Frank} – m'a expliqué la construction du support singulier d'un faisceau (ind-)cohérent sur un schéma dérivé. Nous avons calculer explicitement le cas des schémas l.c.i. Notons que tout schéma localement d'intersection complète est de la forme $\mathrm{pt}\times_{\mathcal U} \mathcal V$ avec $\mathcal U$ et $\mathcal V$ des schémas lisses. C'est assez intelligent et surtout très joli ; j'espère m'en souvenir. Notons que la définition théorique fait appel au théorème HKR en géométrie dérivée que je ne maîtrise déjà pas en géométrie classique. De même le cas l.c.i. utilise de manière rigolote la dualité de Koszul qui est surement très simple mais que je ne connais pas assez. Concluons : Le support singulier d'un faisceau sur $Z$ est toujours dans le \textit{schéma des singularités} de $Z$ défini par $\mathrm{Sing}(Z) = \mathrm{Sym}_{\mathcal O_{^{cl}Z}(H^{-1}(\mathbb L_Z))}$. 
+
+Je n'ai pas réussi à motiver proprement l'étude de la géométrie dérivée à Rajarshi ce qui est gênant. Je ne sais pas non plus où est-ce que la notion de support singulier est intéressante sinon dans le cadre de l'équivalence de Langlands géométrique. Enfin, j'ai adressé la parole à Vladimir Drinfeld pour la première fois aujourd'hui!
+
+Il y a des calculs à faire, au boulot !
+
+\end{itemize}
+
+\textsl{lundi 27 octobre} \quad Je me suis concentré sur les \textit{définitions} des objets en géométrie dérivée et je commence à y voir plus clair. Algébriquement, on considère des anneaux simpliciaux. Géométriquement correspondent des schémas simpliciaux. Il existe une procédure (que l'on interprète comme une limite) qui produit à partir de ces données un honnête anneau (resp. espace topologique). Considérons un schéma simplicial $X^\bullet$. Sa \textit{réalisation géométrique} $|X^\bullet|$ est le pré-champ défini par la colimite prise sur $\Delta^{op}$. Cet objet s'envoie en particulier sur tous les simplexes $X^n$. À l'inverse la \textit{totalisation} est le résultat de la limite sur $\Delta^{op}$. Je ne suis pas certain de faire une distinction nette entre ces deux notions (i.e. en pratique, quand utiliser quoi) mais je peux donner l'exemple suivant. 
+
+Prenons le cas spécifique d'un groupoïde (dans l'$\infty$-catégorie des champs simpliciaux), je le note $\mathcal Y^\bullet$. La donnée de $\mathcal Y^\bullet$ est par définition la donnée que de $\cal Y^0$ et $\cal Y^1$. Pensons à $* \twoheadedarrow BG$ qui est homotopiquement équivalent à $((G^n)_n, \partial_n)$. Alors les simplexes supérieurs s'obtiennent par la \textit{bar}-construction $\cal Y^n = Y^0 \times_{Y^1}\times \cdots \times_{Y^1} Y^0$, et $$\cal Y_1 \simeq Y_0 \times_Y Y_0.$$
+
+Je parle d'un groupoïde car je comprends l'énoncé suivant : 
+
+\begin{prop} Soit $\cal Y_1 \twoheadedarrow Y_0$ un groupoïde. On suppose que $\cal Y_1$ et $\cal Y_0$ sont des $k$-champs d'Artin. On suppose de plus que la diagonale $\cal Y_1 \to Y_0 \times Y_0$ est $(k-1)$-représentable. Alors le groupoîde $\cal Y = |\cal Y^\bullet|$ est $k$-Artin. 
+\end{prop}
+
+\begin{rmq}La $k$- représentabilité d'une application est simplement la version relative de la $k$-artinianité.\end{rmq}
+
+Déballons ces objets dans le cas le plus simple de $BG$, alors $G= \Z/2\Z$. Je veux expliquer pourquoi $|N(\mathcal BG)| = BG$. On sait que $BG$ à le type d'homotopie de $K(\Z/2\Z,1)$, donc de $\bb RP^\infty$. Nous avons donc deux structures simpliciales comme illustrées ci-dessous. L'une vient de la structure simpliciale de l'espace projectif ayant un $n$-simplexe identifié par son équateur à son simplexe de rang inférieur. L'autre vient de la résolution $(G^n)$ du nerf du groupoïde $\mathcal BG$. Remarquons que la première construction ne contient pas l'information des complexes dégénérés. Si nous considérons le (\$Delta$)-complexe simplicial librement engendré par des dégénérescences, on obtient le second ! Remarquons que seul $(1,\lots, 1)$ est non-dégénéré dans le bar-complexe.
+
+\textsl{mardi 28 octobre} \quad Aujourd'hui grande clarification dans les notions d'espace tangent dérivé, cotangent, etc. Pour un corps de caractéristique nulle $k$ et $R$ une $k$-algèbre lisse, l'isomorphisme HKR nous dit que $HH_*(R/k)$ est isomorphe \textit{en tant qu'algèbre différentielle graduée} à $\Omega^*(X/k) = \bigwedge_k^*\Omega^1(X)$. L'application d'anti-symétrisation rend de plus cet isomorphisme explicite :
+$$r_0 \cdot r_1 \wedge \cdots \wedge r_n \mapsto \sum_{\sigma} (-1)^{\varepsilon(\sigma)} [r_0\otimes r_{\sigma(1)} \otimes \cdots \otimes r_{\sigma(n)}\].$$
+
+Bien, mais nous pouvons en géométrie dérivée faire beaucoup mieux. On définit l'objet $HH(R/k)$ comme l'anneau (sur $k$) simplicial commutatif $$R\otimes^L_{R\otimes_k^L R} R.$$
+
+D'autre part, soit $\mathbb L_{R/k}$ le complexe cotangent de $k \to R$.
+
+\begin{lem}On a une filtration de $HH(R/k)$ dont le gradué $n$-ième est isomorphe à $L\bigwedge^n\mathbb L_{R/k}[n]$. C'est à dire, par dualité de Koszul, à \mathrm{LSym}^n(\mathbb L_{R/k}[1]). En caractéristique zéro, l'anti-symétrisation donne un splitting-scindement de cette filtration et l'isomorphisme de Hochschild-Kostant-Rosenlich. \end{lem}
+
+Mais faisons encore mieux. Soit $X$ un schéma dérivé localement de présentation finie. Cela assure que $\mathbb L_{X/k}\in \mathrm{QCoh}(X)$ est parfait, et que $\mathbb T_{X/k}$ existe. On sait, grâce aux cours de Gaitsgory sur le support singulier de faisceaux cohérents que $\mathbb T_{X/k}[-1]$ est muni d'une structure de dg-algèbre de Lie, et dont le crochet est la classe d'Atiyah de $\mathbb T_{X/k}$. Plus géométriquement, 
+$$\mathbb T_{X/k}[-1] = \mathrm{Lie}(\mathcal LX)$$
+
+où $\mathcal LX \to X$ est le \textit{schéma des lacets dérivé} de $X$. Il admet les trois définitions équivalentes suivantes. 
+$$\mathcal LX \simeq X \times_{X \times X} X \qquad \textrm{et} \qquad \mathcal LX \simeq \mathrm{Maps}(\mathbfS^1,X) \qquad \textrm{et} \qquad  O_{\mathcal LX} = \mathrm{LSym}_{O_X}(\mathbb L_{X/k}[1])$$
+
+où l'objet $\bf S^1$ est le push-out $* \sqcup_{* \sqcup *} *$. Pourquoi ? On voit clairement que $\bf S^1$ est le segment $[0,1]$ où sont identifiés $0$ et $1$ en un point $*$. Mais $[0,1]$ est contractile et cela motive la définition précédente.
+
+Mais je ne suis toujours pas capable de calculer des exemples simples.
+
+\textsl{Vendredi 7 octobre} \quad séminaire de représentation, Joachim Faegerman. Il démontre la conjecture de motiviticité de Simpson dans le cas des courbes complexes propres et tout groupe réductif connexe. L'énoncé est le suivant :
+
+\begin{thm}[Conjecture de motivicité, 1992] Soit $X$ une courbe propre sur $\C$ telle que $\bar X- X$ est une union finie de diviseurs à croisements normaux. Tout $G$-système local \textit{rigide} (i.e. isolé dans le champ de de Rham) avec monodromie quasi-unipotente en les diviseurs est \textit{motivique}. \end{thm} 
+
+Notons que l'énoncé devrait être vraie pour $X$ de dimension quelconque. Comme nous allons le voir, ce n'est pas à la portée des techniques actuelles. Un système local est motivique s'il provient de la variation de cohomologie d'un revêtement (propre, projectif) de $X$ (pour être complet : d'un ouvert dense de $X$). La démonstration pour $GL_n$ remontre à Katz (1972), et c'est à peu près tout. Esnault et Groechenig ont démontré que tout système local (cohomologiquement) rigique est entier.
+
+L'idée de la preuve est très simple, une fois l'équivalence de Langlands géométrique en main. Cela n'est pas exact : on a besoin que de l'action spectrale, et de l'existence de faisceaux de Hecke propre Whittaker-normalisés mais \textit{dans le cas ramifié}. C'est ce que démontre préalablement Joachim. Puis à $\sigma$ un système local rigide la remarque que $\mathcal F_\sigma$ est motivique ssi $\sigma$ est motivique. Une fois ceci, on utilise l'action des opérateurs de Hecke et la motivicité du faisceau de Whittaker $\mathcal W = p_*\circ g^!(\exp)$. 
+
+C'est impressionnant. Le séminaire se termine et je veux demander ce que signifie le fait de provenir de la géométrie pour $\mathcal W$ (réponse : il vient de $\mathrm{Bun}_N^\Omega, ce qui ne me convint pas...). Sanath et Joachim discute du problème ouvert suivant. J'ai profité de leur discussion avec profit ; ils ne connaissent pas grand chose mais ils savent faire.
+
+\begin{question}Soit $g : X\hookrightarrow Y$. Est ce que $g_*(\mathcal O_{LS_X})\in \mathrm{QCoh}(Y)$ est motivique ?\end{question} 
+
+
+\textsl{Vendredi 18 novembre} \quad Je renseigne quelques faits apprit en $K$-théorie algébrique et ses conséquences en homotopie, grâce à Shauly. La construction des motifs de Vodoevsky tente de construire une théorie \og universelle \fg au sens suivant. Soit $S$ un schéma régulier et noethérien et $\mathrm{Sm}_S$ la catégorie des schémas lisses sur $S$. On souhaite un foncteur entre $\infty$-catégories $ \mathrm{Sm}_S\to \mathrm{Spt}$ qui vérifie 1. la descente pour la topologie de Nisnevitch 2. l'invariance par $\mathbb A^1$ et 3. un produit monoidal qui rend un $\mathbb P^1$ (motivique, quelque soit sa signification pour l'instant). J'explique la nécessité des hypothèses imposées sur $S$, et celle sur la topologie de Nisnevitch. 
+
+Par propriété universelle, ces deux conditions devraient être vérifiées par la $K$-théorie algébrique. Rappellons que $K_0$ est le groupe de Grothendieck du monoïde $(\mathrm{Proj}_R, \otimes)$ et $K_*$ est la \og groupification homotopique \fg de cette catégorie. Notons que la procédure bête d'inverser un générateur ne fonctionne pas dans le cadre homotopique. Un contre-exemple est la $1$-catégorie (commutative) $\mathrm{FinSet}^= = \bigsqcup_m BS_m$ dont l'inversion selon $BS_2$ est $BS_\infty$. Seulement $BS_\infty$ n'a aucune chance d'être commutative. 
+
+La groupification de la catégorie $\mathrm{FinSet}^=$ est en fait le spectre de la sphère $\mathbb S$. (je ne sais pas encore pourquoi, cependant!) Bref, supposons donc la donnée d'un foncteur que l'on dénote \textit{$K$-théorie algébrique} sur $S$ :
+
+$$KGL : \mathrm{Sm}_S\to \mathrm{Spc} \qquad :\qquad X \longmapsto K(X/S).$$
+
+\begin{itemize}
+\item La topologie de Nisnevitch est plus fine que la topologie étale et moins fine que la topologie de Zariski. La condition de descente est : soit $X\in \mathrm{Sm}_S$ et % https://q.uiver.app/#q=WzAsNCxbMSwwLCJWIl0sWzEsMSwiWCJdLFswLDEsIlUiXSxbMCwwLCJWXFx0aW1lc19YIFUiXSxbMCwxLCJwIl0sWzIsMSwiaSIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzMsMl0sWzMsMF1d
+\[\begin{tikzcd}
+	{V\times_X U} & V \\
+	U & X
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["i"', hook, from=2-1, to=2-2]
+\end{tikzcd}\]
+
+où $i$ est une immersion ouverte et $p$ est étale, et induit un isomorphisme sur $(X-U)_{red}$. La descente est effective sur la classe de tel diagramme. L'exemple le plus simple est le morphisme carré $\mathbb A^1\to \mathbb A^1$ au dessus de $\mathbb G_m$. La $K$-théorie algébrique ne respecte pas la descente pour la topologie étale ; plu particulièrement la descente galoisienne. 
+
+Soit $\mathbb F_{p^2}/\mathbb F_{p}$ une extension (galoisienne). On peut calculer (Quillen) que la $K$-théorie de $\mathbb F_{q}$ est $K_0(\mathbb F_{q}) = \mathbb Z$ (comme tout corps) ; $K_{2i-1}(\mathbb F_{q}) = \mathbb Z/(q^i-1)$ et $K_{2i}(\mathbb F_{q}) = 0$. Et on vérifie (au moins sur la complétion $\ell$-adique - pour commuter points fixes et $K_i$) que $K_1(\mathbb F_{p^2})^{h\Z/2} \ne K_1(\mathbb F_{p})$.
+
+\begin{rmq} Un des seuls exemples explicite de $K$-théorie, due à Quillen. C'est difficile ! La notation $h\Z/2$ tient pour l'action homotopique de groupe. Je n'ai pas précisément compris comment ça fonctionne ; je n'en dis pas plus.
+\end{rmq} 
+
+\item Expliquons maintenant pourquoi la procédure de localisation pour obtenir la $\mathbb A^1$ est nécessaire. Soit $X_0 = \Spec(k[\varepsilon]/\varepsilon^2)$. J'affirme que $K(X_0)$ n'est pas égal à $K(X_0\times \mathbb A^1)$. Concrètement, on cherche un module projectif sur $k[x,\varepsilon]/\varepsilon^2$ qui ne vient pas d'un module sur k[\varepsilon]/\varepsilon^2. Autrement dit, un $k$-espace vectoriel $V$ muni d'un endomorphisme $T$ commutant avec un endomorphisme $N$ nilpotent : $N^2=0$. On croyait avoir trouvé $k^2$ muni de $N$ nilpotente de rank $1$ et $T$ la matrice $(1\ 1\ 0\ 1)$. 
+
+Seulement Shauly pense que les $K_0$ sont identiques, et qu'il faut en fait comparé les $K_1$, ce que je n'ai aucune idée de comment faire. À suivre demain ! 
+\end{itemize}
+
+
+
+
+
+\end{document}
